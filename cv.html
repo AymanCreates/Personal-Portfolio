@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#000"/><text x="100" y="118" font-family="Helvetica,Arial" font-size="54" text-anchor="middle" fill="#fff">CV</text></svg></template>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#000;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:#fff;color:#000}
+  a{color:#fff;text-decoration:none}
+  a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+  @media (max-width:900px){
+    [data-head]{grid-template-columns:1fr 1fr !important;row-gap:26px !important}
+    [data-info]{grid-template-columns:1fr !important;row-gap:24px !important}
+    [data-row]{grid-template-columns:1fr !important;row-gap:4px !important}
+    [data-foot]{grid-template-columns:1fr 1fr !important;row-gap:24px !important}
+    [data-pill]{position:static !important;margin-bottom:20px}
+    [data-indent]{text-indent:0 !important}
+  }
+</style>
+</helmet>
+<div style="position:relative;background:#000;padding:0">
+
+  <div data-head="" style="display:grid;grid-template-columns:repeat(6,1fr);gap:24px;padding:28px 28px 0;font-size:14px;line-height:1.35;letter-spacing:-0.005em">
+    <div><a href="index.html">Mohamed Aboushanab</a></div>
+    <div>Available November 2026</div>
+    <div>
+      <div>Services</div>
+      <div style="padding-left:26px">Art Direction</div>
+      <div style="padding-left:26px">Brand Identity &amp; Systems</div>
+      <div style="padding-left:26px">Campaign &amp; Editorial Design</div>
+    </div>
+    <div>
+      <div>Selected clients</div>
+      <div style="padding-left:26px">Metro Germany</div>
+      <div style="padding-left:26px">Trivago</div>
+      <div style="padding-left:26px">Ferrari MENA</div>
+      <div style="padding-left:26px">Talabat</div>
+      <div style="padding-left:26px">Cherry Jordan</div>
+      <div style="padding-left:26px">COP28 UAE</div>
+    </div>
+    <div><a href="profile.html">Profile</a></div>
+    <div style="text-align:right"><a href="mailto:ma7amed235@gmail.com">Email me</a></div>
+  </div>
+
+  <section style="position:relative;padding:60px 28px 0">
+    <div data-pill="" style="position:absolute;left:28px;top:68px;display:inline-block;border:1px solid #2a2a2a;border-radius:8px;padding:4px 11px;font-size:14px">1. CV</div>
+    <h1 data-indent="" style="margin:0;font-size:clamp(34px,4.6vw,80px);line-height:1;letter-spacing:-0.035em;font-weight:400;text-wrap:pretty;text-indent:min(38vw,760px)">Twelve years, seven countries, one job — deciding what a thing should look like and then making sure it survives production.</h1>
+  </section>
+
+  <section style="position:relative;padding:22vh 28px 0">
+    <div data-pill="" style="position:absolute;left:28px;top:calc(22vh + 8px);display:inline-block;border:1px solid #2a2a2a;border-radius:8px;padding:4px 11px;font-size:14px">2. Experience</div>
+    <div style="margin-top:52px;font-size:clamp(15px,1.35vw,21px);line-height:1.45;max-width:1500px">
+      <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="8">
+        <div data-row="" style="display:grid;grid-template-columns:1.1fr 1.6fr 1.1fr .8fr;gap:24px;padding:16px 0;border-top:1px solid #1e1e1e">
+          <div>{{ j.company }}</div>
+          <div style="color:#b9b9b9">{{ j.title }}</div>
+          <div style="color:#8a8a8a">{{ j.place }}</div>
+          <div style="color:#8a8a8a">{{ j.period }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:22vh 28px 0">
+    <div data-pill="" style="position:absolute;left:28px;top:calc(22vh + 8px);display:inline-block;border:1px solid #2a2a2a;border-radius:8px;padding:4px 11px;font-size:14px">3. Education</div>
+    <div style="margin-top:52px;font-size:clamp(15px,1.35vw,21px);line-height:1.45;max-width:1500px">
+      <div data-row="" style="display:grid;grid-template-columns:1.1fr 1.6fr 1.1fr .8fr;gap:24px;padding:16px 0;border-top:1px solid #1e1e1e">
+        <div>Rhine-Waal University</div>
+        <div style="color:#b9b9b9">BA, Information and Communication Design</div>
+        <div style="color:#8a8a8a">Kleve, Germany · Grade 1.7</div>
+        <div style="color:#8a8a8a">2018–2021</div>
+      </div>
+      <div data-row="" style="display:grid;grid-template-columns:1.1fr 1.6fr 1.1fr .8fr;gap:24px;padding:16px 0;border-top:1px solid #1e1e1e;border-bottom:1px solid #1e1e1e">
+        <div>Duisburg-Essen University</div>
+        <div style="color:#b9b9b9">BA studies, Mechanical Engineering</div>
+        <div style="color:#8a8a8a">Duisburg, Germany</div>
+        <div style="color:#8a8a8a">2014–2018</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:22vh 28px 0">
+    <div data-pill="" style="position:absolute;left:28px;top:calc(22vh + 8px);display:inline-block;border:1px solid #2a2a2a;border-radius:8px;padding:4px 11px;font-size:14px">4. Skills</div>
+    <div data-info="" style="margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:48px;font-size:clamp(15px,1.35vw,21px);line-height:1.45;max-width:1400px">
+      <div>
+        <div>Direction</div>
+        <div style="padding-left:28px">Art direction and concept development</div>
+        <div style="padding-left:28px">Photo and film shoot direction</div>
+        <div style="padding-left:28px">Casting, styling and set direction</div>
+        <div style="padding-left:28px">Creative team leadership</div>
+        <div style="margin-top:18px">Design</div>
+        <div style="padding-left:28px">Brand identity and guidelines</div>
+        <div style="padding-left:28px">Typography and grid systems</div>
+        <div style="padding-left:28px">Editorial, poster and packaging design</div>
+        <div style="padding-left:28px">Motion basics and social formats</div>
+        <div style="margin-top:18px">Production</div>
+        <div style="padding-left:28px">Print artwork, pre-press, large format</div>
+        <div style="padding-left:28px">Retouching and colour</div>
+        <div style="padding-left:28px">Design QA across markets</div>
+      </div>
+      <div>
+        <div>Software</div>
+        <div style="padding-left:28px">Photoshop, Illustrator, InDesign, After Effects</div>
+        <div style="padding-left:28px">Figma, Capture One, Blender</div>
+        <div style="margin-top:18px">Ways of working</div>
+        <div style="padding-left:28px">Agency and in-house, EMEA-wide</div>
+        <div style="padding-left:28px">Briefing and feedback with non-designers</div>
+        <div style="padding-left:28px">Working across Arabic and Latin type</div>
+        <div style="margin-top:18px">Languages</div>
+        <div style="padding-left:28px">Arabic — native</div>
+        <div style="padding-left:28px">English — fluent</div>
+        <div style="padding-left:28px">German — fluent</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:22vh 28px 0">
+    <div data-pill="" style="position:absolute;left:28px;top:calc(22vh + 8px);display:inline-block;border:1px solid #2a2a2a;border-radius:8px;padding:4px 11px;font-size:14px">5. AI &amp; design</div>
+    <h2 data-indent="" style="margin:0 0 60px;font-size:clamp(30px,4.2vw,72px);line-height:1;letter-spacing:-0.032em;font-weight:400;text-wrap:pretty;text-indent:min(38vw,760px)">I use AI the way I use a camera or a press — as production, not as direction. It compresses the boring part of the work so the thinking gets more of the week.</h2>
+    <div data-info="" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;font-size:clamp(15px,1.35vw,21px);line-height:1.45;max-width:1400px">
+      <div>
+        <div>Where it earns its place</div>
+        <div style="padding-left:28px">Moodboards and territory tests before a shoot</div>
+        <div style="padding-left:28px">Set, location and wardrobe previsualisation</div>
+        <div style="padding-left:28px">Background extension, clean-up and variant crops</div>
+        <div style="padding-left:28px">Campaign adaptations across dozens of formats</div>
+        <div style="padding-left:28px">Copy variants for headline testing</div>
+        <div style="margin-top:18px">Tools</div>
+        <div style="padding-left:28px">Midjourney, Firefly, Runway</div>
+        <div style="padding-left:28px">Photoshop generative workflows</div>
+        <div style="padding-left:28px">Claude and GPT for briefs, naming, copy passes</div>
+      </div>
+      <div>
+        <div>Where it does not</div>
+        <div style="padding-left:28px">Final campaign imagery for real products</div>
+        <div style="padding-left:28px">Anything a client would have to defend as documentary</div>
+        <div style="padding-left:28px">Type, logo and layout decisions</div>
+        <div style="margin-top:18px">The rule</div>
+        <div style="padding-left:28px">Every AI-assisted asset is declared to the client</div>
+        <div style="padding-left:28px">No trained-on-a-living-artist prompts</div>
+        <div style="padding-left:28px">If it cannot be re-shot for real, it does not ship</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:20vh 28px 0">
+    <a href="mailto:ma7amed235@gmail.com" style="display:flex;justify-content:space-between;align-items:center;font-size:clamp(18px,2vw,30px);border-top:1px solid #232323;border-bottom:1px solid #232323;padding:26px 0">
+      <span>Request the full CV as a PDF</span><span>↗</span>
+    </a>
+  </section>
+
+  <div data-foot="" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:22vh 28px 40px;font-size:clamp(15px,1.4vw,22px);line-height:1.4">
+    <div>
+      <div>©2026</div>
+      <div>Mohamed Aboushanab</div>
+    </div>
+    <div>
+      <div><a href="https://www.instagram.com/m0hammedayman" target="_blank" rel="noopener">Instagram</a></div>
+      <div><a href="https://www.linkedin.com/in/mohamedaboushanab/" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div>
+      <div><a href="https://www.behance.net/mohamedaboushanab" target="_blank" rel="noopener">Behance</a></div>
+      <div><a href="mailto:ma7amed235@gmail.com">Email</a></div>
+    </div>
+    <div style="text-align:right">
+      <div><a href="profile.html">Profile</a></div>
+      <div><a href="index.html">Index</a></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      jobs: [
+        { company: 'Business Wheel', title: 'Regional Art Director', place: 'Istanbul, Turkey', period: '2025 →' },
+        { company: 'Chain Reaction', title: 'Art Director', place: 'Dubai, UAE', period: '2024–2025' },
+        { company: 'Boopin', title: 'Art Director', place: 'Dubai, UAE', period: '2023–2024' },
+        { company: 'Boopin', title: 'Creative Designer', place: 'Cairo, Egypt', period: '2023' },
+        { company: 'Freelance', title: 'Senior Visual Designer', place: 'Berlin, Germany', period: '2021–2023' },
+        { company: 'trivago', title: 'Art Director — Hotel Search Images', place: 'Amsterdam, Netherlands', period: '2018–2019' },
+        { company: 'trivago', title: 'Visual Content Producer — QA & PM support', place: 'Düsseldorf, Germany', period: '2017–2019' },
+        { company: 'Amazon', title: 'Quality Assurance Specialist', place: 'Rheinberg, Germany', period: '2016–2017' },
+        { company: 'Rapolitics', title: 'Visual Artist', place: 'Copenhagen, Denmark', period: '2015–2016' },
+        { company: 'foodora', title: 'Graphic Designer', place: 'Düsseldorf, Germany', period: '2015–2016' },
+        { company: 'AIESEC', title: 'Photographer', place: 'Zagreb, Croatia', period: '2015–2016' },
+        { company: 'Revolution Records', title: 'Visual Artist', place: 'Alexandria, Egypt', period: '2014–2015' },
+        { company: 'UNRWA', title: 'Artist', place: 'Gaza', period: '2010–2011' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#000"/><text x="100" y="118" font-family="Helvetica,Arial" font-size="64" text-anchor="middle" fill="#fff">MA</text></svg></template>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#000;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+  ::selection{background:#fff;color:#000}
+  a{color:#fff;text-decoration:none}
+  a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+  img{display:block}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @media (max-width:900px){
+    [data-head]{grid-template-columns:1fr 1fr !important;row-gap:28px !important}
+    [data-grid]{grid-template-columns:repeat(2,1fr) !important;grid-auto-rows:auto !important;row-gap:56px !important}
+    [data-proj]{grid-template-columns:1fr !important}
+    [data-proj] > div:first-child{position:static !important}
+  }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#000;padding:0 0 120px">
+
+  <div data-head="" style="display:grid;grid-template-columns:repeat(6,1fr);gap:24px;padding:28px 28px 0;font-size:14px;line-height:1.35;letter-spacing:-0.005em;animation:fadeIn .6s ease both">
+    <div>Mohamed Aboushanab</div>
+    <div>Available November 2026</div>
+    <div>
+      <div>Services</div>
+      <div style="padding-left:26px">Art Direction</div>
+      <div style="padding-left:26px">Brand Identity &amp; Systems</div>
+      <div style="padding-left:26px">Campaign &amp; Editorial Design</div>
+    </div>
+    <div>
+      <div>Selected clients</div>
+      <div style="padding-left:26px">Metro Germany</div>
+      <div style="padding-left:26px">Trivago</div>
+      <div style="padding-left:26px">Ferrari MENA</div>
+      <div style="padding-left:26px">Talabat</div>
+      <div style="padding-left:26px">Cherry Jordan</div>
+      <div style="padding-left:26px">COP28 UAE</div>
+    </div>
+    <div><a href="profile.html">Profile</a></div>
+    <div style="text-align:right"><a href="mailto:ma7amed235@gmail.com">Email me</a></div>
+  </div>
+
+  <div style="height:22vh"></div>
+
+  <div style="{{ stageStyle }}">
+    <div data-grid="" style="display:grid;grid-template-columns:repeat(7,1fr);column-gap:26px;row-gap:40px;grid-auto-rows:auto;align-items:start;padding:0 28px">
+      <sc-for list="{{ cells }}" as="c" hint-placeholder-count="14">
+        <div onMouseEnter="{{ c.enter }}" onMouseLeave="{{ c.leave }}" onClick="{{ c.open }}" style="cursor:pointer;transition:opacity .35s ease">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:19px;letter-spacing:-0.005em;margin-bottom:12px;transition:color .35s ease;color:{{ c.labelColor }}">
+            <span>{{ c.name }}</span>
+            <span>{{ c.num }}</span>
+          </div>
+          <img src="{{ c.src }}" alt="{{ c.alt }}" loading="lazy" style="width:100%;max-height:370px;object-fit:contain;object-position:left top;transition:opacity .35s ease;opacity:{{ c.opacity }}">
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <sc-if value="{{ isGallery }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:40;background:#000;overflow-y:auto;padding:96px 0 140px;animation:fadeIn .4s ease both">
+      <sc-for list="{{ galleryItems }}" as="g" hint-placeholder-count="3">
+        <figure style="margin:0 auto 96px;max-width:1100px;padding:0 28px">
+          <img src="{{ g.src }}" alt="{{ g.alt }}" loading="lazy" style="width:100%;height:auto">
+          <figcaption style="display:flex;justify-content:space-between;font-size:19px;margin-top:14px;color:#8a8a8a"><span>{{ g.name }}</span><span>{{ g.num }}</span></figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeProfile }}" style="position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.94);padding:120px 28px;overflow-y:auto;animation:fadeIn .3s ease both">
+      <div style="max-width:660px;font-size:19px;line-height:1.5;letter-spacing:-0.005em">
+        <p style="margin:0 0 24px">Mohamed Aboushanab is an art director working across brand identity, campaign and editorial design — currently Regional Art Director at Business Wheel, previously with Chain Reaction and Boopin in Dubai and Cairo.</p>
+        <p style="margin:0 0 24px">The work sits between retail scale and print craft: campaign systems for Metro Germany, fashion direction for Beymen and CTRL, identity for Sigmund TV and Boand, and a long-running poster practice.</p>
+        <p style="margin:0;color:#8a8a8a">Click anywhere to close.</p>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasProject }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:70;background:#000;overflow-y:auto;animation:fadeIn .3s ease both">
+      <div data-proj="" style="display:grid;grid-template-columns:minmax(280px,34%) 1fr;align-items:start">
+        <div style="position:sticky;top:0;padding:28px 28px 60px;font-size:19px;letter-spacing:-0.005em">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px">
+            <span>{{ pName }}</span>
+            <button onClick="{{ closeProject }}" style="all:unset;cursor:pointer;font-size:19px;color:#8a8a8a" style-hover="color:#fff">Back</button>
+          </div>
+          <p style="margin:0 0 34px;font-size:clamp(17px,1.5vw,23px);line-height:1.25;letter-spacing:-0.015em;text-wrap:pretty">{{ pDescription }}</p>
+          <div style="display:grid;grid-template-columns:24px 1fr 1fr;column-gap:18px;row-gap:2px;font-size:15px;line-height:1.5;color:#8a8a8a">
+            <div>1</div><div>Client</div><div style="color:#fff">{{ pClient }}</div>
+            <div>2</div><div>Discipline</div><div style="color:#fff">{{ pDiscipline }}</div>
+            <div>3</div><div>Role</div><div style="color:#fff">{{ pRole }}</div>
+            <div>4</div><div>Year</div><div style="color:#fff">{{ pYear }}</div>
+            <div>5</div><div>Frames</div><div style="color:#fff">{{ pCount }}</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;padding:28px 28px 140px">
+          <sc-for list="{{ pImages }}" as="im" hint-placeholder-count="3">
+            <figure style="margin:0">
+              <img src="{{ im.src }}" alt="{{ im.alt }}" loading="eager" decoding="sync" onLoad="{{ capNatural }}" style="width:100%;height:auto">
+            </figure>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <div style="position:fixed;left:22px;bottom:22px;z-index:50;display:flex;gap:14px;font-size:19px;background:rgba(30,30,30,.72);backdrop-filter:blur(14px);border-radius:999px;padding:8px 16px">
+    <button onClick="{{ setGrid }}" style="all:unset;cursor:pointer;color:{{ gridColor }}">Grid</button>
+    <button onClick="{{ setGallery }}" style="all:unset;cursor:pointer;color:{{ galleryColor }}">Gallery</button>
+  </div>
+
+  <div style="position:fixed;right:22px;bottom:22px;z-index:50;display:flex;gap:14px;font-size:19px;background:rgba(30,30,30,.72);backdrop-filter:blur(14px);border-radius:999px;padding:8px 16px">
+    <button onClick="{{ setNormal }}" style="all:unset;cursor:pointer;color:{{ normalColor }}">Normal</button>
+    <button onClick="{{ setTilt }}" style="all:unset;cursor:pointer;color:{{ tiltColor }}">Tilt</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { hover: null, mode: 'grid', look: 'normal', profile: false, project: null };
+
+  projects = [
+    ['Metro — Wine of The Year', 4, ['hero','a','b','c','d','e'], 'Metro Germany', 'Poster & Packaging', '2025', 'Identity and packaging for the Wine of The Year award — a system that had to read on a shelf label and a store-height banner alike.'],
+    ['Beymen', 19, ['hero','a','b','c','d','e'], 'Beymen', 'Art Direction', '2024', 'Architectural glamour: a luxury fashion campaign built around geometric set cutouts and hard directional light.'],
+    ['Marwan Pablo — Illustration Posters', 8, ['img'], 'Marwan Pablo', 'Experimental Poster', '2023', 'An experimental poster series for the artist, drawn and composited by hand.'],
+    ['CTRL — Jackets', 2, ['hero','a','b','c','d','e'], 'CTRL', 'Art Direction', '2024', 'Corporate subversion — studio-set fashion direction with rigid, statuesque posing and a near-brutalist palette.'],
+    ['Lao Hac — Nam Cao', 12, ['img'], 'Editorial Project', 'Editorial Design', '2023', 'Editorial and cover design for a reissue of Nam Cao’s Lao Hac.'],
+    ['Havva Dose', 0, ['hero','a','b','c','d','e'], 'Havva Dose', 'Art Direction', '2024', 'Nostalgic elegance — accessories shot against heritage architecture, gloss and gold against raw stone.'],
+    ['Traveler', 16, ['img'], 'Personal Project', 'Poster Design', '2021', 'A poster piece on movement and distance.'],
+    ['Boand', 5, ['hero','a','b','c','d','g'], 'Boand', 'Brand Identity', '2023', 'Full identity system — mark, type, colour and applications.'],
+    ['COP28 — UAE', 10, ['hero','a','b','c','d','j'], 'COP28 UAE', 'Campaign Design', '2023', 'Event and campaign collateral for the UAE presidency programme.'],
+    ['Bloom Series', 14, ['hero','a','b','c','d','f'], 'Music Festival', 'Poster Design', '2021', 'Experimental poster series for a music festival.'],
+    ['CTRL — Initials', 1, ['hero','a','b','c','d','e'], 'CTRL', 'Art Direction', '2024', 'The off-duty uniform — location-led direction, nonchalant posing, real streets.'],
+    ['Sigmund TV', 7, ['hero','a','b','c','d','i'], 'Sigmund TV', 'Brand Identity', '2023', 'Brand identity for a media platform: logo, motion behaviour and on-air system.'],
+    ['FREE', 17, ['img'], 'Personal Project', 'Poster Design', '2021', 'A protest poster built around a single word.'],
+    ['Metro — Own Business Day', 3, ['hero','a','b','c','d','f'], 'Metro Germany', 'Campaign Art Direction', '2025', 'A 360° retail campaign celebrating independent business owners — from pallet wraps to catalogue spreads.'],
+    ['Illustrations Series', 11, ['hero','a','b','c','d','f'], 'Personal Project', 'Illustration', '2023', 'A personal series of hand-drawn illustrations.'],
+    ['PRAY NO MORE', 6, ['hero','a','b','c','d','h'], 'PRAY NO MORE', 'Brand & Poster', '2023', 'Identity and poster system for a streetwear label.'],
+    ['Album Cover — Blaze', 15, ['img'], 'Blaze', 'Album Cover', '2021', 'Cover artwork matched to the record’s energy.'],
+    ['Silence Behind The Screen', 9, ['hero','a','b','c','d','g'], 'Social Movement', 'Poster Design', '2023', 'A poster campaign on what goes unsaid online.'],
+    ["Dr. Seuss — Oh The Places You'll Go", 13, ['hero','c'], 'Book Cover Project', 'Book Cover Design', '2023', 'A reimagined cover for the Dr. Seuss classic.'],
+    ['CTRL — Denim', 18, ['hero','a','b','c','d','e'], 'CTRL', 'Art Direction', '2024', 'Denim chapter of the CTRL campaign series.']
+  ];
+
+  srcFor(suf, si) {
+    if (suf !== 'img') return `images/slots/proj-${suf}-${si}.jpg`;
+    return [0, 1, 18, 19].indexOf(si) > -1 ? `images/reel/${si}.jpg` : `images/slots/proj-img-${si}.jpg`;
+  }
+
+  componentDidMount() {
+    this._key = (e) => { if (e.key === 'Escape') this.setState({ project: null, profile: false }); };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); }
+
+  flat() {
+    const out = [];
+    this.projects.forEach((p, gi) => p[2].forEach((suf, i) => out.push({
+      gi, name: i === 0 ? p[0] : '', num: String(i + 1), project: p[0],
+      src: this.srcFor(suf, p[1]), alt: `${p[0]} — image ${i + 1}`
+    })));
+    return out;
+  }
+
+  openProject(gi) { this.setState({ project: gi }); window.scrollTo(0, 0); }
+
+  renderVals() {
+    const { hover, mode, look, profile, project } = this.state;
+    const items = this.flat();
+    const cells = items.map((it) => {
+      const on = hover === null ? false : hover === it.gi;
+      return Object.assign({}, it, {
+        opacity: on ? '1' : (hover === null ? '0.5' : '0.16'),
+        labelColor: on ? '#ffffff' : (hover === null ? '#8a8a8a' : '#3a3a3a'),
+        enter: () => this.setState({ hover: it.gi }),
+        leave: () => this.setState({ hover: null }),
+        open: () => this.openProject(it.gi)
+      });
+    });
+    const p = project === null ? null : this.projects[project];
+    return {
+      cells,
+      galleryItems: items,
+      isGallery: mode === 'gallery',
+      isProfile: profile,
+      hasProject: !!p,
+      pName: p ? p[0] : '',
+      pClient: p ? p[3] : '',
+      pDiscipline: p ? p[4] : '',
+      pYear: p ? p[5] : '',
+      pDescription: p ? p[6] : '',
+      pRole: 'Art Director',
+      pCount: p ? `${p[2].length} images` : '',
+      pImages: p ? p[2].map((suf, i) => ({ src: this.srcFor(suf, p[1]), alt: `${p[0]} — ${i + 1}`, num: String(i + 1).padStart(2, '0') })) : [],
+      closeProject: () => this.setState({ project: null }),
+      capNatural: (e) => { const im = e.target; if (im.naturalWidth) im.style.maxWidth = im.naturalWidth + 'px'; },
+      stageStyle: look === 'tilt'
+        ? 'perspective:1400px;transform:rotateX(26deg) scale(.88);transform-origin:50% 0;transition:transform .8s cubic-bezier(.2,.8,.2,1)'
+        : 'transform:none;transition:transform .8s cubic-bezier(.2,.8,.2,1)',
+      gridColor: mode === 'grid' ? '#fff' : 'rgba(255,255,255,.42)',
+      galleryColor: mode === 'gallery' ? '#fff' : 'rgba(255,255,255,.42)',
+      normalColor: look === 'normal' ? '#fff' : 'rgba(255,255,255,.42)',
+      tiltColor: look === 'tilt' ? '#fff' : 'rgba(255,255,255,.42)',
+      setGrid: () => this.setState({ mode: 'grid' }),
+      setGallery: () => this.setState({ mode: 'gallery' }),
+      setNormal: () => this.setState({ look: 'normal' }),
+      setTilt: () => this.setState({ look: 'tilt' }),
+      openProfile: (e) => { e.preventDefault(); this.setState({ profile: true }); },
+      closeProfile: () => this.setState({ profile: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
